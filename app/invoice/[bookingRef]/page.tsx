@@ -5,8 +5,11 @@ export default async function InvoicePage({
 }) {
     const { bookingRef } = await params;
 
+    const baseUrl =
+        process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
     const response = await fetch(
-        `http://localhost:3000/api/bookings/${bookingRef}`,
+        `${baseUrl}/api/bookings/${bookingRef}`,
         {
             cache: "no-store",
         }
